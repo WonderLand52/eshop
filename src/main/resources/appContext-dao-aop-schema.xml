@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+       <bean id="aspect-profiler" class="com.rudenkoInc.eshop.aop.SimpleProfiler"/>
+       <bean id="aspect-exceptions-logger" class="com.rudenkoInc.eshop.aop.ExceptionsLogger"/>
+       <bean id="productDao" class="com.rudenkoInc.eshop.dao.impl.ProductDaoDemo"/>
+
+    <aop:config>
+        <aop:aspect ref="aspect-profiler">
+            <aop:pointcut id="selectById"
+                          expression="execution(* com.rudenkoInc.eshop.dao.ProductDao.getProductById(int)) and args(id)"/>
+            <aop:around pointcut-ref="selectById" method="profile"/>
+        </aop:aspect>
+        <aop:aspect ref="aspect-exceptions-logger">
+            <aop:pointcut id="any-public-methods" expression="execution(public * *(..))"/>
+            <aop:after-throwing pointcut-ref="any-public-methods" method="logException" throwing="t"/>
+        </aop:aspect>
+
+    </aop:config>
+
+
+</beans>
+
+

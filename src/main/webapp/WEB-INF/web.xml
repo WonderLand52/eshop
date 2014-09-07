@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <servlet>
+      <servlet-name>mockController</servlet-name>
+      <servlet-class>com.rudenkoInc.eshop.MockController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mockController</servlet-name>
+        <url-pattern>/mock.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>productController</servlet-name>
+        <servlet-class>com.rudenkoInc.eshop.controller.ProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>productController</servlet-name>
+        <url-pattern>/product.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>visitsController</servlet-name>
+        <servlet-class>com.rudenkoInc.eshop.controller.VisitsControllerDemo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>visitsController</servlet-name>
+        <url-pattern>/visits.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>visitsCookieController</servlet-name>
+        <servlet-class>com.rudenkoInc.eshop.controller.VisitsControllerCookiesDemo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>visitsCookieController</servlet-name>
+        <url-pattern>/visitsCookie.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>productsInBucketController</servlet-name>
+        <servlet-class>com.rudenkoInc.eshop.controller.ProductsInBucketController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>productsInBucketController</servlet-name>
+        <url-pattern>/productsInBucket.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>productsRemoveFromBucketController</servlet-name>
+        <servlet-class>com.rudenkoInc.eshop.controller.ProductsRemoveFromBucketController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>productsRemoveFromBucketController</servlet-name>
+        <url-pattern>/productsRemoveFromBucket.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>productAllController</servlet-name>
+        <servlet-class>com.rudenkoInc.eshop.controller.ProductAllController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>productAllController</servlet-name>
+        <url-pattern>/productAll.do</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /appContext-dao-externalTx.xml
+        </param-value>
+    </context-param>
+
+
+</web-app>
