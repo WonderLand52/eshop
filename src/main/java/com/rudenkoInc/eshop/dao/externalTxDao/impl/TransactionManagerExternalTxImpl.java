@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.concurrent.Callable;
 
 public class TransactionManagerExternalTxImpl extends BaseDataSource implements TransactionsManager {
-    public static final String JDBC_URL = "jdbc:mysql://127.0.0.1:3306/eshop?user=admin&password=pdtcthcndjcj52";
+    public static final String JDBC_URL = "jdbc:mysql://127.0.0.1:3306/eshop?user=admin&password=helloPassword";
     public ThreadLocal<Connection> connectionHolder = new ThreadLocal<>();
 
     @Override
